@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SimpleBullet : MonoBehaviour
 {
@@ -23,9 +24,14 @@ public class SimpleBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer > bulletLife) Destroy(this.gameObject);
+        if (timer > bulletLife)
+        {
+            Destroy(this.gameObject);
+            
+        }
         timer += Time.deltaTime;
         transform.position = Movement(timer);
+        
     }
 
     private Vector2 Movement(float timer)
